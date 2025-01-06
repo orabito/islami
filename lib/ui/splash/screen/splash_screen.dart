@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:islami/style/assets_manager.dart';
+import 'package:islami/style/reusable_components/assets_manager.dart';
 import 'package:islami/ui/home/screen/home_screen.dart';
 import 'dart:async' as async;
 
