@@ -1,29 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:islami/style/assets_manager.dart';
+import 'package:islami/style/reusable_components/assets_manager.dart';
 import 'package:islami/style/reusable_components/colors_manager.dart';
 
 import 'package:islami/style/reusable_components/string_manager.dart';
+import 'package:islami/ui/home/tabs/hadith_tab.dart';
+import 'package:islami/ui/home/tabs/quran_tab.dart';
+import 'package:islami/ui/home/tabs/radio_tap.dart';
+import 'package:islami/ui/home/tabs/sebha_tap.dart';
+import 'package:islami/ui/home/tabs/time_tap.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  HomeScreen({super.key});
 
   static const String routName = "HomeScreen";
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int indexSel = 0;
+  List<Widget> tabs = [
+    QuranTab(),
+    HadithTab(),
+    SebhaTap(),
+    RadioTap(),
+    TimeTap()
+  ];
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: ColorsManager.secondary.withOpacity(.6),
       bottomNavigationBar: NavigationBar(
           labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
           indicatorColor: ColorsManager.navItemBack,
-          selectedIndex: 0,
+          selectedIndex: indexSel,
           backgroundColor: ColorsManager.primary,
+          onDestinationSelected: (index) {
+            setState(() {
+              indexSel = index;
+            });
+          },
           destinations: [
             NavigationDestination(
               icon: SvgPicture.asset(
                 AssetsManager.quran,
-                colorFilter:
-                    ColorFilter.mode(ColorsManager.primary, BlendMode.srcIn),
+                colorFilter: ColorFilter.mode(
+                    ColorsManager.secondary, BlendMode.srcIn),
               ),
               selectedIcon: SvgPicture.asset(
                 AssetsManager.quran,
@@ -35,8 +61,8 @@ class HomeScreen extends StatelessWidget {
             NavigationDestination(
               icon: SvgPicture.asset(
                 AssetsManager.ahadeth,
-                colorFilter:
-                    ColorFilter.mode(ColorsManager.primary, BlendMode.srcIn),
+                colorFilter: ColorFilter.mode(
+                    ColorsManager.secondary, BlendMode.srcIn),
               ),
               selectedIcon: SvgPicture.asset(
                 AssetsManager.ahadeth,
@@ -48,8 +74,8 @@ class HomeScreen extends StatelessWidget {
             NavigationDestination(
               icon: SvgPicture.asset(
                 AssetsManager.sebha,
-                colorFilter:
-                    ColorFilter.mode(ColorsManager.primary, BlendMode.srcIn),
+                colorFilter: ColorFilter.mode(
+                    ColorsManager.secondary, BlendMode.srcIn),
               ),
               selectedIcon: SvgPicture.asset(
                 AssetsManager.sebha,
@@ -61,8 +87,8 @@ class HomeScreen extends StatelessWidget {
             NavigationDestination(
               icon: SvgPicture.asset(
                 AssetsManager.radio,
-                colorFilter:
-                    ColorFilter.mode(ColorsManager.primary, BlendMode.srcIn),
+                colorFilter: ColorFilter.mode(
+                    ColorsManager.secondary, BlendMode.srcIn),
               ),
               selectedIcon: SvgPicture.asset(
                 AssetsManager.radio,
@@ -74,8 +100,8 @@ class HomeScreen extends StatelessWidget {
             NavigationDestination(
               icon: SvgPicture.asset(
                 AssetsManager.time,
-                colorFilter:
-                    ColorFilter.mode(ColorsManager.primary, BlendMode.srcIn),
+                colorFilter: ColorFilter.mode(
+                    ColorsManager.secondary, BlendMode.srcIn),
               ),
               selectedIcon: SvgPicture.asset(
                 AssetsManager.time,
@@ -85,6 +111,7 @@ class HomeScreen extends StatelessWidget {
               label: StringManager.time,
             ),
           ]),
+      body: tabs[indexSel],
     );
   }
 }
