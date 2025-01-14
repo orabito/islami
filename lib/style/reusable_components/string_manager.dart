@@ -9,12 +9,19 @@ class StringManager {
   static const String radio = "Radio";
   static const String time = "Time";
   static const String mostRecently = "Most Recently";
+  static const String suraList = "Sura List";
+
 }
 
  abstract final class AppTextStyles {
   static TextStyle headline =const TextStyle(
       fontWeight: FontWeight.w700,
-      fontSize: 16,
+      fontSize: 24,
+      color: ColorsManager.primary,
+      fontFamily: "janna");
+  static TextStyle headline20 =const TextStyle(
+      fontWeight: FontWeight.w700,
+      fontSize: 20,
       color: ColorsManager.primary,
       fontFamily: "janna");
   static TextStyle subtitle  = const TextStyle(
