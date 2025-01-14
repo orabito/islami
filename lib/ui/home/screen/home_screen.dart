@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: ColorsManager.secondary.withOpacity(.6),
+      backgroundColor: ColorsManager.secondary.withValues(alpha: .6),
       bottomNavigationBar: NavigationBar(
           labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
           indicatorColor: ColorsManager.navItemBack,

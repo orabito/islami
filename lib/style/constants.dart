@@ -1,6 +1,6 @@
 import '../models/sura_model.dart';
 
- List<SuraModel> suraList = [
+  List<SuraModel> suraList = [
 SuraModel(suraNameAr: "الفاتحة", suraNameEn: "Al-Fatiha", versesNumber: "7", suraNumber: 1,),
 SuraModel(suraNameAr: "البقرة", suraNameEn: "Al-Baqarah", versesNumber: "286", suraNumber: 2),
 SuraModel(suraNameAr: "آل عمران", suraNameEn: "Aal-E-Imran", versesNumber: "200", suraNumber: 3),
