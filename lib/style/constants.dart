@@ -116,3 +116,4 @@ SuraModel(suraNameAr: "المسد", suraNameEn: "Al-Masad", versesNumber: "5", s
 SuraModel(suraNameAr: "الإخلاص", suraNameEn: "Al-Ikhlas", versesNumber: "4", suraNumber: 112),
 SuraModel(suraNameAr: "الفلق", suraNameEn: "Al-Falaq", versesNumber: "5", suraNumber: 113),
 SuraModel(suraNameAr: "الناس", suraNameEn: "An-Nas", versesNumber: "6", suraNumber: 114),];
+

@@ -7,7 +7,7 @@ import 'package:islami/style/reusable_components/colors_manager.dart';
 import 'package:islami/style/reusable_components/string_manager.dart';
 
 class SuraDetails extends StatefulWidget {
-  SuraDetails({super.key});
+  const SuraDetails({super.key});
 
   static const String routeName = "SuraDetails";
 
@@ -29,7 +29,7 @@ class _SuraDetailsState extends State<SuraDetails> {
       backgroundColor: ColorsManager.secondary,
       appBar: AppBar(
           scrolledUnderElevation: 0,
-          iconTheme: IconThemeData(color: ColorsManager.primary),
+          iconTheme: const IconThemeData(color: ColorsManager.primary),
           backgroundColor: Colors.transparent,
           centerTitle: true,
           title: Text(
@@ -54,7 +54,7 @@ class _SuraDetailsState extends State<SuraDetails> {
                       Image.asset(AssetsManager.rightCorner),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 19,
                   ),
                   Expanded(

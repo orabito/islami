@@ -10,7 +10,7 @@ import '../widgets/Recently_Surah_Widget.dart';
 import '../widgets/sura_widget.dart';
 
 class QuranTab extends StatefulWidget {
-  QuranTab({super.key});
+  const QuranTab({super.key});
 
   @override
   State<QuranTab> createState() => _QuranTabState();
@@ -29,7 +29,7 @@ class _QuranTabState extends State<QuranTab> {
       },
       child: Container(
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(AssetsManager.quranBack),
                 fit: BoxFit.fitWidth)),
@@ -52,7 +52,7 @@ class _QuranTabState extends State<QuranTab> {
                     searchSuraWhere(searchValue);
                     setState(() {});
                   },
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontWeight: FontWeight.w700,
                       fontSize: 16,
                       color: ColorsManager.searchTextColor,
@@ -63,7 +63,7 @@ class _QuranTabState extends State<QuranTab> {
                     isCollapsed: true,
                     fillColor: ColorsManager.secondary,
                     hintText: "Enter sura name",
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                         fontWeight: FontWeight.w700,
                         fontSize: 16,
                         color: ColorsManager.searchTextColor,
@@ -73,14 +73,14 @@ class _QuranTabState extends State<QuranTab> {
                       child: SvgPicture.asset(AssetsManager.quran),
                     ),
                     prefixIconConstraints:
-                        BoxConstraints(maxWidth: 58, maxHeight: 58),
+                        const BoxConstraints(maxWidth: 58, maxHeight: 58),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(color: ColorsManager.primary),
+                      borderSide: const BorderSide(color: ColorsManager.primary),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(color: ColorsManager.primary),
+                      borderSide: const BorderSide(color: ColorsManager.primary),
                     ),
                   ),
                 ),
@@ -92,7 +92,7 @@ class _QuranTabState extends State<QuranTab> {
                     StringManager.mostRecently,
                     style: AppTextStyles.subtitle,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Expanded(
@@ -102,7 +102,7 @@ class _QuranTabState extends State<QuranTab> {
                         itemBuilder: (context, index) => RecentlySurahWidget(
                           suraModel: mostRecentList[index],
                         ),
-                        separatorBuilder: (context, index) => SizedBox(
+                        separatorBuilder: (context, index) => const SizedBox(
                               width: 10,
                             ),
                         itemCount: mostRecentList.length),
@@ -111,7 +111,7 @@ class _QuranTabState extends State<QuranTab> {
                     StringManager.suraList,
                     style: AppTextStyles.subtitle,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 14,
                   ),
                 ],
@@ -132,8 +132,8 @@ class _QuranTabState extends State<QuranTab> {
                       itemCount: searchValue.isNotEmpty
                           ? suraFilter.length
                           : suraList.length,
-                      separatorBuilder: (context, index) => Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                      separatorBuilder: (context, index) => const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 40.0),
                         child: Divider(
                           height: 20,
                         ),

@@ -11,9 +11,9 @@ import 'package:islami/ui/home/tabs/sebha_tap.dart';
 import 'package:islami/ui/home/tabs/time_tap.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
-  static const String routName = "HomeScreen";
+  static const String routeName = "HomeScreen";
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -21,12 +21,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int indexSel = 0;
-  List<Widget> tabs = [
-    QuranTab(),
-    HadithTab(),
-    SebhaTap(),
-    RadioTap(),
-    TimeTap()
+ final List<Widget> tabs = [
+    const QuranTab(),
+    const HadithTab(),
+    const SebhaTap(),
+    const RadioTap(),
+    const TimeTap()
   ];
 
   @override
@@ -48,65 +48,65 @@ class _HomeScreenState extends State<HomeScreen> {
             NavigationDestination(
               icon: SvgPicture.asset(
                 AssetsManager.quran,
-                colorFilter: ColorFilter.mode(
+                colorFilter: const ColorFilter.mode(
                     ColorsManager.secondary, BlendMode.srcIn),
               ),
               selectedIcon: SvgPicture.asset(
                 AssetsManager.quran,
                 colorFilter:
-                    ColorFilter.mode(ColorsManager.primary, BlendMode.srcIn),
+                    const ColorFilter.mode(ColorsManager.primary, BlendMode.srcIn),
               ),
               label: StringManager.quran,
             ),
             NavigationDestination(
               icon: SvgPicture.asset(
                 AssetsManager.ahadeth,
-                colorFilter: ColorFilter.mode(
+                colorFilter: const ColorFilter.mode(
                     ColorsManager.secondary, BlendMode.srcIn),
               ),
               selectedIcon: SvgPicture.asset(
                 AssetsManager.ahadeth,
                 colorFilter:
-                    ColorFilter.mode(ColorsManager.primary, BlendMode.srcIn),
+                    const ColorFilter.mode(ColorsManager.primary, BlendMode.srcIn),
               ),
               label: StringManager.ahadith,
             ),
             NavigationDestination(
               icon: SvgPicture.asset(
                 AssetsManager.sebha,
-                colorFilter: ColorFilter.mode(
+                colorFilter: const ColorFilter.mode(
                     ColorsManager.secondary, BlendMode.srcIn),
               ),
               selectedIcon: SvgPicture.asset(
                 AssetsManager.sebha,
                 colorFilter:
-                    ColorFilter.mode(ColorsManager.primary, BlendMode.srcIn),
+                    const ColorFilter.mode(ColorsManager.primary, BlendMode.srcIn),
               ),
               label: StringManager.sebha,
             ),
             NavigationDestination(
               icon: SvgPicture.asset(
                 AssetsManager.radio,
-                colorFilter: ColorFilter.mode(
+                colorFilter: const ColorFilter.mode(
                     ColorsManager.secondary, BlendMode.srcIn),
               ),
               selectedIcon: SvgPicture.asset(
                 AssetsManager.radio,
                 colorFilter:
-                    ColorFilter.mode(ColorsManager.primary, BlendMode.srcIn),
+                    const ColorFilter.mode(ColorsManager.primary, BlendMode.srcIn),
               ),
               label: StringManager.radio,
             ),
             NavigationDestination(
               icon: SvgPicture.asset(
                 AssetsManager.time,
-                colorFilter: ColorFilter.mode(
+                colorFilter: const ColorFilter.mode(
                     ColorsManager.secondary, BlendMode.srcIn),
               ),
               selectedIcon: SvgPicture.asset(
                 AssetsManager.time,
                 colorFilter:
-                    ColorFilter.mode(ColorsManager.primary, BlendMode.srcIn),
+                    const ColorFilter.mode(ColorsManager.primary, BlendMode.srcIn),
               ),
               label: StringManager.time,
             ),

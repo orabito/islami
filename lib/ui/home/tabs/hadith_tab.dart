@@ -11,7 +11,7 @@ class HadithTab extends StatelessWidget {
       Center(
         child: Container(
 
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               image: DecorationImage(image: AssetImage(AssetsManager.ahadethBack),fit: BoxFit.fitWidth)
           ),
         ),

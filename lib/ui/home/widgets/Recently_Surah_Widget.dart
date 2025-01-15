@@ -7,14 +7,14 @@ import 'package:islami/style/reusable_components/string_manager.dart';
 import '../../sura details/sura_details.dart';
 
 class RecentlySurahWidget extends StatelessWidget {
-   RecentlySurahWidget({required this.suraModel});
+   RecentlySurahWidget({super.key, required this.suraModel});
 SuraModel suraModel;
   @override
   Widget build(BuildContext context) {
     return  GestureDetector(
       onTap:()=>Navigator.of(context).pushNamed(SuraDetails.routeName,arguments: suraModel) ,
       child: Container(
-        padding: EdgeInsets.all(7),
+        padding: const EdgeInsets.all(7),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: ColorsManager.primary

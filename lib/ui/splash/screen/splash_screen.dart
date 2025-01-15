@@ -2,14 +2,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:islami/style/reusable_components/assets_manager.dart';
-import 'package:islami/ui/home/screen/home_screen.dart';
+import 'package:islami/ui/Onboarding/screen/Onboarding_screen.dart';
+
 import 'dart:async' ;
 
 
 class SplashScreen extends StatefulWidget {
-   SplashScreen({super.key});
+   const SplashScreen({super.key});
 
-  static const String routName = "SplashScreen";
+  static const String routeName = "SplashScreen";
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -21,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // TODO: implement initState
     super.initState();
     Timer(const Duration(seconds: 2), () {
-      Navigator.pushReplacementNamed(context, HomeScreen.routName);
+      Navigator.pushReplacementNamed(context, OnboardingScreen.routeName);
     });
 
 

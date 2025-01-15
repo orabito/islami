@@ -9,7 +9,7 @@ class TimeTap extends StatelessWidget {
   Widget build(BuildContext context) {
     return
       Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(image: AssetImage(AssetsManager.timeBack))
         ),
       );
