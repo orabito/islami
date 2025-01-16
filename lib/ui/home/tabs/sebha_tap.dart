@@ -15,7 +15,6 @@ class SebhaTap extends StatefulWidget {
 
 class _SebhaTapState extends State<SebhaTap> {
   double turn = 0;
-  int selectedNumber=10;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +30,7 @@ class _SebhaTapState extends State<SebhaTap> {
         child: Column(
           children: [
             Expanded(
-              flex: 2,
+              flex: 3,
               child: Image.asset(
                 AssetsManager.lago,
                 fit: BoxFit.cover,
@@ -41,8 +40,9 @@ class _SebhaTapState extends State<SebhaTap> {
               height: 8,
             ),
             Expanded(
+              flex: 2,
               child: Text(
-                " عدد التسبيحات",
+                "سَبِّحِ اسْمَ رَبِّكَ الأعلى",
                 style: TextStyle(
                     fontSize: 30,
                     fontFamily: "janna",
@@ -50,22 +50,19 @@ class _SebhaTapState extends State<SebhaTap> {
                     color: ColorsManager.tertiary),
               ),
             ),
-
-
             const SizedBox(
               height: 8,
             ),
             Stack(
               alignment: Alignment.topCenter,
               children: [
-
                 Image.asset(
                   AssetsManager.sebhaTop,
                   height: MediaQuery.of(context).size.height * .1,
                   fit: BoxFit.cover,
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 75),
+                  margin: EdgeInsets.only(top: 50),
                   child: InkWell(
                     onTap: () {
                       azkarSabahCounter();
@@ -127,7 +124,7 @@ class _SebhaTapState extends State<SebhaTap> {
 
   azkarSabahCounter() {
     count++;
-    if (count == selectedNumber) {
+    if (count == 31) {
       count = 0;
       if (index == azkarSabah.length - 1) {
         index = 0;
