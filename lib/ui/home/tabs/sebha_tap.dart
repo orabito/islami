@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:islami/style/reusable_components/colors_manager.dart';
+import 'package:islami/style/reusable_components/string_manager.dart';
+import 'package:islami/ui/home/widgets/sebha_text_button.dart';
 import 'dart:math' as math;
 import '../../../style/reusable_components/assets_manager.dart';
 
@@ -12,7 +14,8 @@ class SebhaTap extends StatefulWidget {
 }
 
 class _SebhaTapState extends State<SebhaTap> {
-  double turn=0;
+  double turn = 0;
+  int selectedNumber=10;
 
   @override
   Widget build(BuildContext context) {
@@ -23,76 +26,90 @@ class _SebhaTapState extends State<SebhaTap> {
         image: AssetImage(AssetsManager.sebhaBack),
         fit: BoxFit.fill,
       )),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 70.0),
-            child: Image.asset(
-              AssetsManager.lago,
-              fit: BoxFit.cover,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
+        child: Column(
+          children: [
+            Expanded(
+              flex: 2,
+              child: Image.asset(
+                AssetsManager.lago,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 40.0),
-            child: Text(
-              "سَبِّحِ اسْمَ رَبِّكَ الأعلى ",
-              style: TextStyle(
-                  fontSize: 36,
-                  fontFamily: "janna",
-                  fontWeight: FontWeight.w700,
-                  color: ColorsManager.tertiary),
+            const SizedBox(
+              height: 8,
             ),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Image.asset(
-            AssetsManager.sebhaTop,
-            fit: BoxFit.cover,
-          ),
-          InkWell(
-            onTap: () {
-              azkarSabahCounter();
-            },
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Transform.rotate(
-                  angle:  turn,
-                  transformHitTests: true,
+            Expanded(
+              child: Text(
+                " عدد التسبيحات",
+                style: TextStyle(
+                    fontSize: 30,
+                    fontFamily: "janna",
+                    fontWeight: FontWeight.w700,
+                    color: ColorsManager.tertiary),
+              ),
+            ),
 
-                  child: SvgPicture.asset(
-                    AssetsManager.sebhaNumber,
-                    fit: BoxFit.cover,
-                  ),
+
+            const SizedBox(
+              height: 8,
+            ),
+            Stack(
+              alignment: Alignment.topCenter,
+              children: [
+
+                Image.asset(
+                  AssetsManager.sebhaTop,
+                  height: MediaQuery.of(context).size.height * .1,
+                  fit: BoxFit.cover,
                 ),
-                Text(
-                  azkarSabah[index],
-                  style: const TextStyle(
-                      fontSize: 36,
-                      fontFamily: "janna",
-                      fontWeight: FontWeight.bold,
-                      color: ColorsManager.tertiary),
-                ),
-                Positioned(
-                  bottom: 75,
-                  child: Text(
-                    "$count",
-                    style: const TextStyle(
-                        fontSize: 36,
-                        fontFamily: "janna",
-                        fontWeight: FontWeight.bold,
-                        color: ColorsManager.tertiary),
-                    textAlign: TextAlign.end,
+                Container(
+                  margin: EdgeInsets.only(top: 75),
+                  child: InkWell(
+                    onTap: () {
+                      azkarSabahCounter();
+                    },
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Transform.rotate(
+                          angle: turn,
+                          transformHitTests: true,
+                          child: SvgPicture.asset(
+                            AssetsManager.sebhaNumber,
+                            fit: BoxFit.cover,
+                            width: MediaQuery.of(context).size.width * .9,
+                          ),
+                        ),
+                        Text(
+                          azkarSabah[index],
+                          style: const TextStyle(
+                              fontSize: 36,
+                              fontFamily: "janna",
+                              fontWeight: FontWeight.bold,
+                              color: ColorsManager.tertiary),
+                        ),
+                        Positioned(
+                          bottom: 75,
+                          child: Text(
+                            "$count",
+                            style: const TextStyle(
+                                fontSize: 36,
+                                fontFamily: "janna",
+                                fontWeight: FontWeight.bold,
+                                color: ColorsManager.tertiary),
+                            textAlign: TextAlign.end,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
@@ -110,7 +127,7 @@ class _SebhaTapState extends State<SebhaTap> {
 
   azkarSabahCounter() {
     count++;
-    if (count == 31) {
+    if (count == selectedNumber) {
       count = 0;
       if (index == azkarSabah.length - 1) {
         index = 0;
@@ -122,5 +139,4 @@ class _SebhaTapState extends State<SebhaTap> {
 
     setState(() {});
   }
-
 }

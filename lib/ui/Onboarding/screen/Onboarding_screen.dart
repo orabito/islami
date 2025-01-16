@@ -52,8 +52,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         children: [
           TextButton(
               onPressed: () {
-                Navigator.of(context)
-                    .pushReplacementNamed(HomeScreen.routeName);
+
+                // selectedPage=4;
+                // setState(() {
+                //
+                // });if i want to when he tab on skip go
+                //to the last on boarding
+                //this will be the code
+                Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+
               },
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -76,13 +83,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               onPageChanged: (value) {
                 setState(() {
                   selectedPage = value;
+                  // if(selectedPage==4){
+                  //   selectedPage=4;
+                  // }and also  this one
+
+
                 });
               },
               controller: pageController,
               itemCount: onboarding.length,
               itemBuilder: (context, index) {
                 return OnboardingWidget(
-                  onboardingModel: onboarding[index],
+
+                  onboardingModel:selectedPage==4?onboarding[4]: onboarding[index],
                 );
               },
             ),
@@ -93,8 +106,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               TextButton(
                   onPressed: () {
                     pageController.previousPage(
-                        duration: Duration(milliseconds: 1),
+                        duration: Duration(milliseconds: 400),
                         curve: Curves.easeInOut);
+                    setState(() {
+
+                    });
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
