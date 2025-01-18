@@ -15,7 +15,7 @@ class SebhaTap extends StatefulWidget {
 
 class _SebhaTapState extends State<SebhaTap> {
   double turn = 0;
-  double iturn = 0;
+
 
   @override
   Widget build(BuildContext context) {
