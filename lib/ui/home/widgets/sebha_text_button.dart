@@ -12,12 +12,12 @@ Function selectedOne;
   Widget build(BuildContext context) {
     return  TextButton(onPressed: (){
       selectedOne();
-    },
-      child: Text(text,style: AppTextStyles.subtitle,),style: TextButton.styleFrom(
+    },style: TextButton.styleFrom(
           backgroundColor: ColorsManager.primary,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16))
 
 
-      ));
+      ),
+      child: Text(text,style: AppTextStyles.subtitle,));
   }
 }

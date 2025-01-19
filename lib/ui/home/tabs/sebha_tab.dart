@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:islami/style/reusable_components/colors_manager.dart';
-import 'package:islami/style/reusable_components/string_manager.dart';
-import 'package:islami/ui/home/widgets/sebha_text_button.dart';
+
 import 'dart:math' as math;
 import '../../../style/reusable_components/assets_manager.dart';
 
@@ -15,7 +14,6 @@ class SebhaTab extends StatefulWidget {
 
 class _SebhaTabState extends State<SebhaTab> {
   double turn = 0;
-
 
   @override
   Widget build(BuildContext context) {

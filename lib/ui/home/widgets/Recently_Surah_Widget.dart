@@ -8,8 +8,9 @@ import '../../sura details/sura_details.dart';
 class RecentlySurahWidget extends StatelessWidget {
    RecentlySurahWidget({super.key, required this.suraModel,required this.addFomeRecent});
 SuraModel suraModel;
-  @override
+
   void Function() addFomeRecent ;
+  @override
   Widget build(BuildContext context) {
     return  GestureDetector(
       onTap:() {
