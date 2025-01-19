@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -51,15 +52,21 @@ class _QuranTabState extends State<QuranTab> {
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: Column(
+            child:
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Align(
-                    alignment: Alignment.center,
-                    child: Image.asset(
-                      AssetsManager.lago,
-                      height: 151,
-                    )),
+
+                Expanded(
+                  flex: 4,
+                  child: Align(
+                      alignment: Alignment.center,
+                      child: Image.asset(
+                        AssetsManager.lago,
+
+                        fit: BoxFit.cover,
+                      )),
+                ),
                 TextField(
                   onChanged: (value) {
                     searchValue = value;
@@ -113,19 +120,28 @@ class _QuranTabState extends State<QuranTab> {
                     height: 10,
                   ),
                   if(mostRecentList.isNotEmpty) ...[Expanded(
-                    flex: 2,
+                    flex: 4,
                     child: ListView.separated(
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) =>
                             RecentlySurahWidget(
+                              addFomeRecent: () {
+                                mostRecentList.insert(0,mostRecentList[index]);
+                                removeDuplicates();
+                                setState(() {
+                                  prefhelper.addRecentList(mostRecentList);
+
+
+                                });
+                              },
                               suraModel: mostRecentList[index],
                             ),
                         separatorBuilder: (context, index) =>
                         const SizedBox(
                           width: 10,
                         ),
-                        itemCount: mostRecentList.length),
-                  )
+                        itemCount: min(10,mostRecentList.length),
+                  ))
                   ],
                   Text(
                     StringManager.suraList,
@@ -136,7 +152,7 @@ class _QuranTabState extends State<QuranTab> {
                   ),
                 ],
                 Expanded(
-                    flex: 4,
+                    flex: 7,
                     child: ListView.separated(
                       itemBuilder: (context, index) =>
                           SuraWidget(

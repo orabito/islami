@@ -6,9 +6,9 @@ import 'package:islami/style/reusable_components/colors_manager.dart';
 import 'package:islami/style/reusable_components/string_manager.dart';
 import 'package:islami/ui/home/tabs/hadith_tab.dart';
 import 'package:islami/ui/home/tabs/quran_tab.dart';
-import 'package:islami/ui/home/tabs/radio_tap.dart';
-import 'package:islami/ui/home/tabs/sebha_tap.dart';
-import 'package:islami/ui/home/tabs/time_tap.dart';
+import 'package:islami/ui/home/tabs/radio_tab.dart';
+import 'package:islami/ui/home/tabs/sebha_tab.dart';
+import 'package:islami/ui/home/tabs/time_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,10 +23,10 @@ class _HomeScreenState extends State<HomeScreen> {
   int indexSel = 0;
  final List<Widget> tabs = [
     const QuranTab(),
-    const HadithTab(),
-    const SebhaTap(),
-    const RadioTap(),
-    const TimeTap()
+     HadithTab(),
+    const SebhaTab(),
+    const RadioTab(),
+    const TimeTab()
   ];
 
   @override

@@ -47,9 +47,12 @@ class _SuraDetailsState extends State<SuraDetails> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Image.asset(AssetsManager.leftCorner),
-                      Text(
-                        suraModel.suraNameAr,
-                        style: AppTextStyles.headline,
+                      Expanded(
+                        child: Text(
+                          suraModel.suraNameAr,textAlign: TextAlign.center
+                          ,
+                          style: AppTextStyles.headline,
+                        ),
                       ),
                       Image.asset(AssetsManager.rightCorner),
                     ],

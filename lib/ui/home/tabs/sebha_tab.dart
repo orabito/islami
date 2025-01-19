@@ -6,14 +6,14 @@ import 'package:islami/ui/home/widgets/sebha_text_button.dart';
 import 'dart:math' as math;
 import '../../../style/reusable_components/assets_manager.dart';
 
-class SebhaTap extends StatefulWidget {
-  const SebhaTap({super.key});
+class SebhaTab extends StatefulWidget {
+  const SebhaTab({super.key});
 
   @override
-  State<SebhaTap> createState() => _SebhaTapState();
+  State<SebhaTab> createState() => _SebhaTabState();
 }
 
-class _SebhaTapState extends State<SebhaTap> {
+class _SebhaTabState extends State<SebhaTab> {
   double turn = 0;
 
 
@@ -63,7 +63,7 @@ class _SebhaTapState extends State<SebhaTap> {
                   fit: BoxFit.cover,
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 50),
+                  margin: EdgeInsets.only(top: 60),
                   child: InkWell(
                     onTap: () {
                       azkarSabahCounter();

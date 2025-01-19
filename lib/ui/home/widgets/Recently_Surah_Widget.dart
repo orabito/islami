@@ -7,14 +7,20 @@ import 'package:islami/style/reusable_components/string_manager.dart';
 import '../../sura details/sura_details.dart';
 
 class RecentlySurahWidget extends StatelessWidget {
-   RecentlySurahWidget({super.key, required this.suraModel});
+   RecentlySurahWidget({super.key, required this.suraModel,required this.addFomeRecent});
 SuraModel suraModel;
   @override
+  void Function() addFomeRecent ;
   Widget build(BuildContext context) {
     return  GestureDetector(
-      onTap:()=>Navigator.of(context).pushNamed(SuraDetails.routeName,arguments: suraModel) ,
+      onTap:() {
+        addFomeRecent();
+
+        Navigator.of(context).pushNamed(SuraDetails.routeName,arguments: suraModel);
+      } ,
       child: Container(
         padding: const EdgeInsets.all(7),
+
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: ColorsManager.primary
@@ -27,9 +33,27 @@ SuraModel suraModel;
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text(suraModel.suraNameEn,style: AppTextStyles.secondary24,),
-                  Text(suraModel.suraNameAr,style: AppTextStyles.secondary24,),
-                  Text("${suraModel.versesNumber} verses",style: AppTextStyles.secondary14,)
+                  Text(suraModel.suraNameEn,style:
+                  TextStyle(
+                      color: ColorsManager.secondary,
+                      fontSize: 20,
+                      fontFamily: "janna",
+                      fontWeight: FontWeight.w700
+                  ),),
+                  Text(suraModel.suraNameAr,style:
+                  TextStyle(
+                      color: ColorsManager.secondary,
+                      fontSize: 20,
+                      fontFamily: "janna",
+                      fontWeight: FontWeight.w700
+                  ),),
+                  Text("${suraModel.versesNumber} verses",style:
+                  TextStyle(
+                    color: ColorsManager.secondary,
+                    fontSize: 14,
+                    fontFamily: "janna",
+                    fontWeight: FontWeight.w700
+                  ),)
                 ],
               ),
             ),

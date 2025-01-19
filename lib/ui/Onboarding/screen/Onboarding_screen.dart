@@ -52,15 +52,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         children: [
           TextButton(
               onPressed: () {
-
                 // selectedPage=4;
                 // setState(() {
                 //
                 // });if i want to when he tab on skip go
                 //to the last on boarding
                 //this will be the code
-                Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
-
+                Navigator.of(context)
+                    .pushReplacementNamed(HomeScreen.routeName);
               },
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -86,16 +85,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   // if(selectedPage==4){
                   //   selectedPage=4;
                   // }and also  this one
-
-
                 });
               },
               controller: pageController,
               itemCount: onboarding.length,
               itemBuilder: (context, index) {
                 return OnboardingWidget(
-
-                  onboardingModel:selectedPage==4?onboarding[4]: onboarding[index],
+                  onboardingModel:
+                      selectedPage == 4 ? onboarding[4] : onboarding[index],
                 );
               },
             ),
@@ -105,19 +102,24 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             children: [
               TextButton(
                   onPressed: () {
-                    pageController.previousPage(
-                        duration: Duration(milliseconds: 400),
-                        curve: Curves.easeInOut);
-                    setState(() {
-
-                    });
+                    if (selectedPage == 0) {
+                      pageController.nextPage(
+                          duration: Duration(milliseconds: 1),
+                          curve: Curves.easeInOut);
+                      setState(() {});
+                    } else {
+                      pageController.previousPage(
+                          duration: Duration(milliseconds: 400),
+                          curve: Curves.easeInOut);
+                      setState(() {});
+                    }
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Align(
                         alignment: Alignment.topRight,
                         child: Text(
-                          "Back",
+                          selectedPage == 0 ? "Start" : "Back",
                           style: AppTextStyles.headline,
                         )),
                   )),
