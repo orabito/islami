@@ -2,14 +2,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:islami/style/reusable_components/assets_manager.dart';
-import 'package:islami/ui/home/screen/home_screen.dart';
-import 'dart:async' as async;
+import 'package:islami/ui/Onboarding/screen/Onboarding_screen.dart';
+
+import 'dart:async' ;
 
 
 class SplashScreen extends StatefulWidget {
-   SplashScreen({super.key});
+   const SplashScreen({super.key});
 
-  static const String routName = "SplashScreen";
+  static const String routeName = "SplashScreen";
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -20,8 +21,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    async.Timer(Duration(seconds: 2), () {
-      Navigator.pushReplacementNamed(context, HomeScreen.routName);
+    Timer(const Duration(seconds: 2), () {
+      Navigator.pushReplacementNamed(context, OnboardingScreen.routeName);
     });
 
 
@@ -33,11 +34,11 @@ class _SplashScreenState extends State<SplashScreen> {
       child: Scaffold(
         body: Image.asset(
           AssetsManager.splash,
-          fit: BoxFit.fill,
+          fit: BoxFit.cover,
           width: double.infinity,
         ),
       ),
     );
   }
 }
-//hi
+
