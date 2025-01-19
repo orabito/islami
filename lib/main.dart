@@ -24,11 +24,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
      debugShowCheckedModeBanner: false,
       routes: {
-        SplashScreen.routeName: (_) => SplashScreen(),
+        SplashScreen.routeName: (_) => const SplashScreen(),
         HomeScreen.routeName:(_)=>const HomeScreen(),
         SuraDetails.routeName:(_)=>const SuraDetails(),
         OnboardingScreen.routeName:(_)=>OnboardingScreen(),
-        HadithDetailsScreen.routeName:(_)=>HadithDetailsScreen()
+        HadithDetailsScreen.routeName:(_)=>const HadithDetailsScreen()
 
       },
       initialRoute: SplashScreen.routeName,
