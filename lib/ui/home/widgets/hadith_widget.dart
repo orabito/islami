@@ -38,7 +38,7 @@ class HadithWidget extends StatelessWidget {
                   flex: 1,
                   child: Text(
                     hadithModel.title,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontFamily: "janna",
                         fontSize: 17,
                         color: ColorsManager.secondary,

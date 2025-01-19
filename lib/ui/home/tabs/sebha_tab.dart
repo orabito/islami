@@ -40,7 +40,7 @@ class _SebhaTabState extends State<SebhaTab> {
             const SizedBox(
               height: 8,
             ),
-            Expanded(
+            const Expanded(
               flex: 2,
               child: Text(
                 "سَبِّحِ اسْمَ رَبِّكَ الأعلى",
@@ -63,7 +63,7 @@ class _SebhaTabState extends State<SebhaTab> {
                   fit: BoxFit.cover,
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 60),
+                  margin: const EdgeInsets.only(top: 60),
                   child: InkWell(
                     onTap: () {
                       azkarSabahCounter();

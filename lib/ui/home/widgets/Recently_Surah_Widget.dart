@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:islami/models/sura_model.dart';
 import 'package:islami/style/reusable_components/assets_manager.dart';
 import 'package:islami/style/reusable_components/colors_manager.dart';
-import 'package:islami/style/reusable_components/string_manager.dart';
 
 import '../../sura details/sura_details.dart';
 
@@ -34,21 +33,21 @@ SuraModel suraModel;
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Text(suraModel.suraNameEn,style:
-                  TextStyle(
+                  const TextStyle(
                       color: ColorsManager.secondary,
                       fontSize: 20,
                       fontFamily: "janna",
                       fontWeight: FontWeight.w700
                   ),),
                   Text(suraModel.suraNameAr,style:
-                  TextStyle(
+                  const TextStyle(
                       color: ColorsManager.secondary,
                       fontSize: 20,
                       fontFamily: "janna",
                       fontWeight: FontWeight.w700
                   ),),
                   Text("${suraModel.versesNumber} verses",style:
-                  TextStyle(
+                  const TextStyle(
                     color: ColorsManager.secondary,
                     fontSize: 14,
                     fontFamily: "janna",

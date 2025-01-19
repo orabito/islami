@@ -104,12 +104,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   onPressed: () {
                     if (selectedPage == 0) {
                       pageController.nextPage(
-                          duration: Duration(milliseconds: 1),
+                          duration: const Duration(milliseconds: 1),
                           curve: Curves.easeInOut);
                       setState(() {});
                     } else {
                       pageController.previousPage(
-                          duration: Duration(milliseconds: 400),
+                          duration: const Duration(milliseconds: 400),
                           curve: Curves.easeInOut);
                       setState(() {});
                     }
@@ -130,7 +130,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     return Padding(
                         padding: const EdgeInsets.only(right: 11.0),
                         child: AnimatedContainer(
-                          duration: Duration(
+                          duration: const Duration(
                             milliseconds: 300,
                           ),
                           height: 10,
@@ -148,7 +148,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   onPressed: () {
                     if (selectedPage < onboarding.length - 1) {
                       pageController.nextPage(
-                          duration: Duration(milliseconds: 1),
+                          duration: const Duration(milliseconds: 1),
                           curve: Curves.easeInOut);
                     } else {
                       Navigator.of(context)

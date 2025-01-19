@@ -36,7 +36,7 @@ class _HadithTabState extends State<HadithTab> {
     return Center(
       child: SafeArea(
         child: Container(
-          margin: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+          margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
           decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage(AssetsManager.ahadethBack),
@@ -49,11 +49,11 @@ class _HadithTabState extends State<HadithTab> {
                     AssetsManager.lago,
                     height: 151,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 55,
               ),
               hadithList.isEmpty
-                  ? Center(
+                  ? const Center(
                       child: CircularProgressIndicator(
                       color: ColorsManager.primary,
                     ))
