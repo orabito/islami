@@ -23,7 +23,7 @@ class QuranTab extends StatefulWidget {
 class _QuranTabState extends State<QuranTab> {
   String searchValue = "";
   List<SuraModel> suraFilter = [];
-  List<SuraModel>mostRecentList = [];
+  List<SuraModel> mostRecentList = [];
 
   @override
   void initState() {
@@ -52,18 +52,15 @@ class _QuranTabState extends State<QuranTab> {
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child:
-            Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 Expanded(
                   flex: 4,
                   child: Align(
                       alignment: Alignment.center,
                       child: Image.asset(
                         AssetsManager.lago,
-
                         fit: BoxFit.cover,
                       )),
                 ),
@@ -95,16 +92,16 @@ class _QuranTabState extends State<QuranTab> {
                       child: SvgPicture.asset(AssetsManager.quran),
                     ),
                     prefixIconConstraints:
-                    const BoxConstraints(maxWidth: 58, maxHeight: 58),
+                        const BoxConstraints(maxWidth: 58, maxHeight: 58),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(
-                          color: ColorsManager.primary),
+                      borderSide:
+                          const BorderSide(color: ColorsManager.primary),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(
-                          color: ColorsManager.primary),
+                      borderSide:
+                          const BorderSide(color: ColorsManager.primary),
                     ),
                   ),
                 ),
@@ -119,29 +116,26 @@ class _QuranTabState extends State<QuranTab> {
                   const SizedBox(
                     height: 10,
                   ),
-                  if(mostRecentList.isNotEmpty) ...[Expanded(
-                    flex: 4,
-                    child: ListView.separated(
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) =>
-                            RecentlySurahWidget(
-                              addFomeRecent: () {
-                                mostRecentList.insert(0,mostRecentList[index]);
-                                removeDuplicates();
-                                setState(() {
-                                  prefhelper.addRecentList(mostRecentList);
-
-
-                                });
-                              },
-                              suraModel: mostRecentList[index],
-                            ),
-                        separatorBuilder: (context, index) =>
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        itemCount: min(10,mostRecentList.length),
-                  ))
+                  if (mostRecentList.isNotEmpty) ...[
+                    Expanded(
+                        flex: 4,
+                        child: ListView.separated(
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) => RecentlySurahWidget(
+                            addFomeRecent: () {
+                              mostRecentList.insert(0, mostRecentList[index]);
+                              removeDuplicates();
+                              setState(() {
+                                prefhelper.addRecentList(mostRecentList);
+                              });
+                            },
+                            suraModel: mostRecentList[index],
+                          ),
+                          separatorBuilder: (context, index) => const SizedBox(
+                            width: 10,
+                          ),
+                          itemCount: min(10, mostRecentList.length),
+                        ))
                   ],
                   Text(
                     StringManager.suraList,
@@ -154,37 +148,37 @@ class _QuranTabState extends State<QuranTab> {
                 Expanded(
                     flex: 7,
                     child: ListView.separated(
-                      itemBuilder: (context, index) =>
-                          SuraWidget(
-                            addTORecent: () {
-                              // for (int i = 0; i < mostRecentList.length; i++) {
-                              //   if (mostRecentList[i].suraNameEn ==
-                              //       (searchValue.isNotEmpty
-                              //           ? suraFilter[index].suraNameEn
-                              //           : suraList[index].suraNameEn)) {
-                              //     mostRecentList.removeAt(i);
-                              //   }
-                              // }
-                              //to make recently list don't be repetition
-                              //like what i do in set
+                      itemBuilder: (context, index) => SuraWidget(
+                        addTORecent: () {
+                          // for (int i = 0; i < mostRecentList.length; i++) {
+                          //   if (mostRecentList[i].suraNameEn ==
+                          //       (searchValue.isNotEmpty
+                          //           ? suraFilter[index].suraNameEn
+                          //           : suraList[index].suraNameEn)) {
+                          //     mostRecentList.removeAt(i);
+                          //   }
+                          // }
+                          //to make recently list don't be repetition
+                          //like what i do in set
 
-                              mostRecentList.insert(0,
-                                  searchValue.isNotEmpty ? suraFilter[index]
-                                      : suraList[index]);
-                              removeDuplicates();
-                              setState(() {
-                                prefhelper.addRecentList(mostRecentList);
-                              });
-                            },
-                            sura: searchValue.isNotEmpty
-                                ? suraFilter[index]
-                                : suraList[index],
-                          ),
+                          mostRecentList.insert(
+                              0,
+                              searchValue.isNotEmpty
+                                  ? suraFilter[index]
+                                  : suraList[index]);
+                          removeDuplicates();
+                          setState(() {
+                            prefhelper.addRecentList(mostRecentList);
+                          });
+                        },
+                        sura: searchValue.isNotEmpty
+                            ? suraFilter[index]
+                            : suraList[index],
+                      ),
                       itemCount: searchValue.isNotEmpty
                           ? suraFilter.length
                           : suraList.length,
-                      separatorBuilder: (context, index) =>
-                      const Padding(
+                      separatorBuilder: (context, index) => const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 40.0),
                         child: Divider(
                           height: 20,
@@ -203,9 +197,9 @@ class _QuranTabState extends State<QuranTab> {
     suraFilter = [];
     for (int i = 0; i < suraList.length; i++) {
       if (suraList[i]
-          .suraNameEn
-          .toLowerCase()
-          .contains(searchText.toLowerCase()) ||
+              .suraNameEn
+              .toLowerCase()
+              .contains(searchText.toLowerCase()) ||
           suraList[i]
               .suraNameAr
               .toLowerCase()
@@ -222,8 +216,10 @@ class _QuranTabState extends State<QuranTab> {
     suraFilter = [];
     suraFilter = suraList
         .where((element) =>
-    element.suraNameEn.toLowerCase().contains(searchText.toLowerCase()) ||
-        element.suraNameAr.toLowerCase().contains(searchText.toLowerCase()))
+            element.suraNameEn
+                .toLowerCase()
+                .contains(searchText.toLowerCase()) ||
+            element.suraNameAr.toLowerCase().contains(searchText.toLowerCase()))
         .toList();
   }
 
@@ -239,14 +235,14 @@ class _QuranTabState extends State<QuranTab> {
 
         return;
       } else if (suraList[mid]
-          .suraNameEn
-          .toLowerCase()
-          .compareTo(searchText.toLowerCase()) <
-          0 ||
+                  .suraNameEn
+                  .toLowerCase()
+                  .compareTo(searchText.toLowerCase()) <
+              0 ||
           suraList[mid]
-              .suraNameEn
-              .toLowerCase()
-              .compareTo(searchText.toLowerCase()) <
+                  .suraNameEn
+                  .toLowerCase()
+                  .compareTo(searchText.toLowerCase()) <
               0) {
         start = mid + 1;
       } else {

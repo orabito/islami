@@ -10,6 +10,29 @@ class prefhelper {
   static Future<void> init() async {
     prefs = await SharedPreferences.getInstance();
   }
+  static setSelectedSebha(int selected)async{
+    await prefs.setInt('selected',selected );
+  }
+  static getSelectedsebha(){
+   int selected=prefs.getInt("selected")??0;
+   return selected;
+  }
+  static setCounterSebha(int counter)async{
+    await prefs.setInt('counter',counter );
+  }
+  static getCountersebha(){
+    final int counter=prefs.getInt('counter')??0;
+    return counter;
+  }
+
+  static setIndexSebha(int index)async{
+    await prefs.setInt('index',index );
+  }
+
+static getIndexsebha(){
+    final int index=prefs.getInt('index')??0;
+    return index;
+}
 
   static addRecentList(List<SuraModel> mostRecentList) {
     List<String> mostRecentlyString =

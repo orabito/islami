@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:islami/style/prefHelper.dart';
 import 'package:islami/style/reusable_components/colors_manager.dart';
+import 'package:islami/ui/home/widgets/show_modal_bottom.dart';
 
 import 'dart:math' as math;
 import '../../../style/reusable_components/assets_manager.dart';
@@ -14,17 +16,32 @@ class SebhaTab extends StatefulWidget {
 
 class _SebhaTabState extends State<SebhaTab> {
   double turn = 0;
+  int selected = 11;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    index = prefhelper.getIndexsebha();
+    counter = prefhelper.getCountersebha();
+    selected= prefhelper.getSelectedsebha();
+  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        
-        floatingActionButton: FloatingActionButton(onPressed: (){
-          
-        }),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: ColorsManager.primary,
+          onPressed: () {
+            showModalBottoms();
+          },
+          child: Icon(
+            Icons.menu,
+            color: ColorsManager.secondary,
+          ),
+        ),
         body: Container(
-          
           width: double.infinity,
           decoration: const BoxDecoration(
               image: DecorationImage(
@@ -96,7 +113,7 @@ class _SebhaTabState extends State<SebhaTab> {
                             Positioned(
                               bottom: 75,
                               child: Text(
-                                "$count",
+                                "$counter",
                                 style: const TextStyle(
                                     fontSize: 36,
                                     fontFamily: "janna",
@@ -119,6 +136,27 @@ class _SebhaTabState extends State<SebhaTab> {
     );
   }
 
+  void showModalBottoms() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => ShowModalBottom(
+        restart: (restartNumber) {
+          index = restartNumber;
+          prefhelper.setIndexSebha(index);
+          counter = 0;
+          prefhelper.setCounterSebha(counter);
+          setState(() {});
+        },
+        onNumberSelected: (int number) {
+          selected = number;
+          prefhelper.setSelectedSebha(selected);
+          setState(() {});
+          print(selected);
+        },
+      ),
+    );
+  }
+
   List<String> azkarSabah = [
     "سبحان الله",
     "الحمد لله ",
@@ -126,20 +164,29 @@ class _SebhaTabState extends State<SebhaTab> {
     "أستغفر الله"
   ];
 
-  int count = 0;
+  int counter = 0;
 
   int index = 0;
 
   azkarSabahCounter() {
-    count++;
-    if (count == 31) {
-      count = 0;
+    counter++;
+
+
+    if (counter == selected) {
+      counter = 0;
+
       if (index == azkarSabah.length - 1) {
         index = 0;
+
       } else {
         index++;
+
       }
+
+
     }
+    prefhelper.setIndexSebha(index);
+    prefhelper.setCounterSebha(counter);
     turn += math.pi / 2;
 
     setState(() {});
